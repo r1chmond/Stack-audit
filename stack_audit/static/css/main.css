@@ -1,0 +1,27 @@
+
+.header-content{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+
+.card{
+    max-width: 550px;
+    min-height: 470px;
+    margin: auto;
+    padding: 7px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(219, 219, 219, 0.877);
+    box-shadow: 2px 3px 5px grey;
+}
+
+
+#main-container{
+    max-width: 700px;
+    margin: auto;
+    min-height: 100vh;
+}
