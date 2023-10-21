@@ -8,15 +8,16 @@ from django.conf import settings
 
 openai.api_key = settings.OPENAI_API_KEY
 
-def get_source_from_hiro_api(form: SmartContractForm):
-    url = f"https://api.mainnet.hiro.so/extended/v1/contract/{form.contract}"
+def get_source_from_hiro_api(contract: str):
+    url = f"https://api.mainnet.hiro.so/extended/v1/contract/{contract}"
 
     payload = {}
     headers = {
         'Accept': 'application/json'
     }
     response = requests.request("GET", url, headers=headers, data=payload)
-    return json.load(response.content)["source_code"]
+    contents = response.content.decode('utf-8')
+    return json.loads(contents)["source_code"]
 
 
 def get_response_from_openai(source: str) -> str:
@@ -28,4 +29,3 @@ def get_response_from_openai(source: str) -> str:
     )
     return response['choices'][0]['message']['content']
 
-print('hell')
