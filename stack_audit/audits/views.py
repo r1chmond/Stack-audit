@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from audits import openai_api
+from audits import apis
 from audits.forms import SmartContractForm
 
 
@@ -9,7 +9,8 @@ def home(request):
     context = {}
     if request.method == "POST":
         form = SmartContractForm(request.POST)
-        response = openai_api.get_response(form)
+        source = apis.get_source_from_hiro_api(form)
+        response = apis.get_response_from_openai(source)
         context['response'] = response
 
     context["form"] = form
