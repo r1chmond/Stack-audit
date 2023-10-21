@@ -1,5 +1,7 @@
+
 body {
-   background-color: #27283b;
+   color: white; 
+   background-color: #212231;
 }
 
 .header-content{
@@ -11,6 +13,8 @@ body {
 
 
 .card{
+    background-color: #27283b;
+    color: white;
     max-width: 550px;
     min-height: 470px;
     margin-left: auto;
@@ -19,8 +23,8 @@ body {
     border-radius: 8px;
     border-style: solid;
     border-width: 1px;
-    border-color: rgba(219, 219, 219, 0.877);
-    box-shadow: 2px 3px 5px grey;
+    border-color: rgba(41, 42, 75, 0.877);
+    box-shadow: 2px 3px 5px #212231;
     margin-bottom: 50px;
 
 }
@@ -32,3 +36,18 @@ body {
     min-height: 100vh;
 }
 
+.custom-btn{
+    color: white;
+    background-color: rgb(117, 17, 148);
+}
+
+#nav-home-tab{
+    color: white;
+    background-color: rgb(117, 17, 148);
+
+}
+
+#nav-profile-tab{
+    color: white;
+    background-color: rgb(117, 17, 148);
+}
