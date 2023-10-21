@@ -4,15 +4,15 @@ from django.db import models
 
 # Create your models here.
 class Evaluation(models.Model):
+    responseType = models.TextField()
     response = models.TextField()
 
 class SmartContract(models.Model):
-    contract_address = models.TextField(blank=True)
-    contract_name = models.TextField(blank=True)
-    evalutation = models.ForeignKey(Evaluation, on_delete=models.CASCADE)
+    contract = models.TextField()
     source = models.TextField()
+    evalutation = models.ForeignKey(Evaluation, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"SmartContract({self.contract_name}, {self.contract_address})"
+        return f"SmartContract({self.contract})"
 
 
