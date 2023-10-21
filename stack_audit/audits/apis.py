@@ -28,4 +28,3 @@ def get_response_from_openai(source: str) -> str:
         ]
     )
     return response['choices'][0]['message']['content']
-
