@@ -1,12 +1,13 @@
 import json
+import os
 
 from audits.forms import SmartContractForm
 import openai
 import requests
-from django.conf import settings
+import dotenv
 
 
-openai.api_key = settings.OPENAI_API_KEY
+openai.api_key = dotenv.read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
 
 def get_source_from_hiro_api(contract: str):
     url = f"https://api.mainnet.hiro.so/extended/v1/contract/{contract}"
