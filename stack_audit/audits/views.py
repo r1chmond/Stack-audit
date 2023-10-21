@@ -9,7 +9,8 @@ def home(request):
     context = {}
     if request.method == "POST":
         form = SmartContractForm(request.POST)
-        source = apis.get_source_from_hiro_api(form)
+        form.clean()
+        source = apis.get_source_from_hiro_api(form.cleaned_data.get("contract"))
         response = apis.get_response_from_openai(source)
         context['response'] = response
 
