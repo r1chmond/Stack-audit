@@ -1,5 +1,17 @@
 from django.shortcuts import render
+from audits import apis
+from audits.forms import SmartContractForm
+
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    form = SmartContractForm()
+    context = {}
+    if request.method == "POST":
+        form = SmartContractForm(request.POST)
+        source = apis.get_source_from_hiro_api(form)
+        response = apis.get_response_from_openai(source)
+        context['response'] = response
+
+    context["form"] = form
+    return render(request, 'home.html', context=context)
