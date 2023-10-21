@@ -4,13 +4,13 @@ from django.db import models
 
 # Create your models here.
 class Evaluation(models.Model):
-    score = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
     response = models.TextField()
 
 class SmartContract(models.Model):
-    contract_address = models.TextField()
-    contract_name = models.TextField()
+    contract_address = models.TextField(blank=True)
+    contract_name = models.TextField(blank=True)
     evalutation = models.ForeignKey(Evaluation, on_delete=models.CASCADE)
+    source = models.TextField()
 
     def __str__(self):
         return f"SmartContract({self.contract_name}, {self.contract_address})"
